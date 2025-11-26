@@ -1,0 +1,15 @@
+# Ignorar a pasta do ambiente virtual (pesada e inútil para outros)
+venv/
+.env
+
+# Ignorar arquivos compilados do Python
+__pycache__/
+*.pyc
+
+# Ignorar banco de dados local (geralmente não subimos os dados, só o código)
+*.db
+data/
+
+# Ignorar configurações do editor (VS Code, PyCharm)
+.vscode/
+.idea/
