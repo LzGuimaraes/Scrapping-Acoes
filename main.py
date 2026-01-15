@@ -1,20 +1,15 @@
-# Importa o scraper
 from services.yahoo_scrapper import get_stock_data
-# Importa as funções do banco (do arquivo database.py que criamos acima)
 from services.database import iniciar_banco, salvar_registro
 
-# 1. INICIALIZA O BANCO (Cria a tabela se não existir)
 iniciar_banco()
 
-tickers = ["PETR4", "VALE3", "ITUB4", "BBAS3"]
+tickers = ["BBAS3", "BBDC3", "KLBN4", "TAEE3", "WEGE3", "MDIA3", "POMO3","PLPL3" ]
 
 print("--- Iniciando Coleta ---")
 
 for ticker in tickers:
     ticker = ticker.strip()
-    print("\n=====================")
     print(f"Coletando: {ticker}")
-    print("=====================")
 
     data = get_stock_data(ticker)
 

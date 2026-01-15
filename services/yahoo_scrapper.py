@@ -2,9 +2,6 @@ import os
 import certifi
 import yfinance as yf
 
-# Descomente a linha abaixo apenas se tiver problemas de certificado SSL no Windows
-# os.environ['SSL_CERT_FILE'] = r"C:\TempCert\cacert.pem"
-
 def get_stock_data(ticker):
     symbol = f"{ticker}.SA"
     
