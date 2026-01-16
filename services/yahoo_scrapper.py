@@ -1,5 +1,3 @@
-import os
-import certifi
 import yfinance as yf
 
 def get_stock_data(ticker):
@@ -14,26 +12,20 @@ def get_stock_data(ticker):
         if price is None:
             return None
 
-        # Dados adicionais
-        day_low = info.day_low
-        day_high = info.day_high
-        volume = info.last_volume 
         previous_close = info.previous_close
         
         variation_val = price - previous_close
         variation_percent = (variation_val / previous_close) * 100
-        variation_str = f"{variation_percent:.2f}%"
+        nome_ativo = ticker 
 
-        # RETORNANDO JÁ COM OS NOMES QUE O BANCO ESPERA
         return {
             "ticker": ticker,
-            "nome": ticker,   
-            "preco": round(price, 2),  
-            "variacao": variation_str,
-            "minimo": round(day_low, 2), 
-            "maximo": round(day_high, 2), 
-            "volume": volume   
+            "name": nome_ativo,
+            "current_price": round(price, 2),
+            "daily_variation": round(variation_percent, 2),
+            "type": "ACAO" 
         }
 
     except Exception as e:
+        print(f"Erro no scrapper para {ticker}: {e}")
         return None
